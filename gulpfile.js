@@ -4,7 +4,8 @@
 const gulp = require('gulp'),
     del = require('del'),
     vinylPaths = require('vinyl-paths'),
-    $ = require('gulp-load-plugins')();
+    $ = require('gulp-load-plugins')(),
+    webserver = require('gulp-webserver');
 
 const paths = {
     langs: ['src/langs/**.js', '!src/langs/en.js'],
@@ -96,6 +97,17 @@ const langs = gulp.series(testLangs, function langs() {
         .pipe(gulp.dest('dist/minified/langs/'));
 });
 
+const serve = function() {
+    return gulp.src('./')
+        .pipe(webserver({
+            host: '127.0.0.1',
+            port: 6639,
+            livereload: true,
+            open: true,
+            fallback: 'docs/index.html'
+        }));
+};
+
 
 const icons = function () {
     return gulp.src(paths.icons)
@@ -173,4 +185,5 @@ module.exports = {
     build,
     test,
     watch,
+    serve,
 };
