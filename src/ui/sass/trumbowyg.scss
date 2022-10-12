@@ -95,7 +95,7 @@ $modal-label-width: 150px;
     background: $light-background-color-editor;
     border: 1px solid $light-border-color;
     color: $light-text-color;
-    
+
     border-top: none;
     border-radius: 0 0 $border-radius $border-radius;
 
@@ -189,7 +189,7 @@ $modal-label-width: 150px;
         &:last-child::after {
             content: none;
         }
-        
+
         &:first-child button:first-child {
             border-radius: $border-radius 0 0 0;
         }
@@ -197,7 +197,7 @@ $modal-label-width: 150px;
         &.trumbowyg-right:last-child button:last-child {
             border-radius: 0 $border-radius 0 0;
         }
-        
+
         &.trumbowyg-right {
             border-left: 1px solid $light-border-color;
         }
@@ -678,7 +678,8 @@ body.trumbowyg-body-fullscreen {
 /*
  * Dark theme
  */
-.trumbowyg-dark {
+.trumbowyg-dark,
+html.dark-mode .trumbowyg {
 
     .trumbowyg-editor,
     .trumbowyg-textarea {
@@ -718,7 +719,7 @@ body.trumbowyg-body-fullscreen {
             background-color: #333;
         }
     }
-    
+
     .trumbowyg-button-group {
         &.trumbowyg-right {
             border-left: 1px solid $dark-border-color;
