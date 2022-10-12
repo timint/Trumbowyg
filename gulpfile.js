@@ -5,6 +5,7 @@ const gulp = require('gulp'),
     del = require('del'),
     vinylPaths = require('vinyl-paths'),
     $ = require('gulp-load-plugins')(),
+    sass = require('gulp-sass')(require('sass')),
     sourcemaps = require('gulp-sourcemaps'),
     webserver = require('gulp-webserver');
 
@@ -126,7 +127,7 @@ const icons = function () {
 
 const styles = function () {
     return gulp.src(paths.styles)
-        .pipe($.sass())
+        .pipe(sass())
         .pipe(sourcemaps.init())
         .pipe($.autoprefixer(['last 1 version', '> 1%', 'ff >= 20', 'ie >= 9', 'opera >= 12', 'Android >= 2.2'], {cascade: true}))
         .pipe($.header(banner, {pkg: pkg, description: 'Default stylesheet for Trumbowyg editor'}))
@@ -148,7 +149,7 @@ const sassDist = gulp.series(styles, function sassDist() {
 
 const pluginsStyles = function () {
     return gulp.src(paths.pluginsStyles)
-        .pipe($.sass())
+        .pipe(sass())
         .pipe($.autoprefixer(['last 1 version', '> 1%', 'ff >= 20', 'ie >= 9', 'opera >= 12', 'Android >= 2.2'], {cascade: true}))
         .pipe($.header(banner, {pkg: pkg, description: 'Trumbowyg plugin stylesheet'}))
         .pipe($.rename(function (path) {
