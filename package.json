@@ -9,8 +9,9 @@
     "dev": "gulp",
     "build": "gulp build",
     "clean": "gulp clean",
+    "serve": "gulp serve",
     "test": "gulp test",
-    "serve": "gulp serve"
+    "watch": "gulp watch"
   },
   "devDependencies": {
     "del": "^6.1.1",
@@ -30,6 +31,7 @@
     "gulp-svgmin": "4.1.0",
     "gulp-svgstore": "^9.0.0",
     "gulp-terser": "2.1.0",
+    "gulp-watch": "^5.0.1",
     "gulp-webserver": "0.9.1",
     "jquery": "3.6.1",
     "jshint": "2.13.5",
