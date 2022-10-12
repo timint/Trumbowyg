@@ -37,6 +37,12 @@
             en: {
                 insertAudio: 'Insert Audio'
             },
+            sl: {
+                insertAudio: 'Vstavi zvočno datoteko'
+            },
+            by: {
+                insertAudio: 'Уставіць аўдыё'
+            },
             da: {
                 insertAudio: 'Indsæt lyd'
             },

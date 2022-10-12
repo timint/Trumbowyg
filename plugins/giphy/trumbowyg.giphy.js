@@ -7,6 +7,12 @@
       en: {
         giphy: 'Insert GIF',
       },
+      sl: {
+        giphy: 'Vstavi GIF',
+      },
+      by: {
+        giphy: 'Уставіць GIF',
+      },
       et: {
         giphy: 'Sisesta GIF',
       },
@@ -15,6 +21,9 @@
       },
       hu: {
         giphy: 'GIF beszúrás',
+      },
+      ru: {
+        giphy: 'Вставить GIF',
       },
       tr: {
         giphy: 'GIF ekle',
