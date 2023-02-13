@@ -30,6 +30,17 @@
                 tableDestroy: 'Delete table',
                 error: 'Error'
             },
+            az: {
+                table: 'Cədvəl yerləşdir',
+                tableAddRow: 'Sətir əlavə et',
+                tableAddRowAbove: 'Yuxarı sətir əlavə et',
+                tableAddColumnLeft: 'Sola sütun əlavə et',
+                tableAddColumn: 'Sağa sütun əlavə et',
+                tableDeleteRow: 'Sətri sil',
+                tableDeleteColumn: 'Sütunu sil',
+                tableDestroy: 'Cədvəli sil',
+                error: 'Xəta'
+            },
             sl: {
                 table: 'Dodaj tabelo',
                 tableAddRow: 'Dodaj vrstico',
@@ -313,9 +324,9 @@
                             if(table.length > 0) {
                                 var row = $('<tr/>');
                                 // add columns according to current columns count
-                                for (var i = 0; i < table.find('tr')[0].childElementCount; i += 1) {
-                                    $('<td/>').appendTo(row);
-                                }
+                                $('td,th', focusedRow).each(function(){
+                                    $(this).clone().appendTo(row).text('');
+                                });
                                 // add row to table
                                 focusedRow.after(row);
                             }
@@ -339,9 +350,9 @@
                             if(table.length > 0) {
                                 var row = $('<tr/>');
                                 // add columns according to current columns count
-                                for (var i = 0; i < table.find('tr')[0].childElementCount; i += 1) {
-                                    $('<td/>').appendTo(row);
-                                }
+                                $('td,th', focusedRow).each(function(){
+                                    $(this).clone().appendTo(row).text('');
+                                });
                                 // add row to table
                                 focusedRow.before(row);
                             }
