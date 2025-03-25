@@ -1,4 +1,4 @@
-@import "variables";
+@use "variables";
 
 /*! HTML5 Boilerplate v4.3.0 | MIT License | http://h5bp.com/ */
 
@@ -57,13 +57,10 @@ textarea {
 }
 
 
-
-
-
-
 html {
     box-sizing: border-box;
 }
+
 *,
 *:before,
 *:after {
@@ -75,7 +72,7 @@ button,
 input,
 select,
 textarea {
-    font-family: $font;
+    font-family: variables.$font;
     font-size: 18px;
     font-weight: 300;
 }
@@ -94,30 +91,42 @@ textarea {
     }
 
     code.console {
-        background: $text-color;
+        background: variables.$text-color;
         color: #fff;
         font-size: 16px;
         padding: 3px 7px;
     }
 
     .note {
-        color: #888;
-        padding: 3px 0 3px 15px;
-        border-left: 3px solid $primary-color-light;
-        margin-right: 30px;
+        display: table;
+        color: #666;
+        background: rgba(0, 0, 0, 0.02);
+        padding: 8px 12px;
+        border-left: 3px solid variables.$primary-color-light;
+        border-radius: 8px;
+        font-size: 15px;
+        margin-block-start: 0.5em;
+        margin-block-end: 0.5em;
 
         > :first-child {
-            margin-top: 0;
+            margin-top: 6px;
         }
+
         > :last-child {
-            margin-bottom: 0;
+            margin-bottom: 6px;
+        }
+
+        code {
+            margin-left: 2px;
+            margin-right: 2px;
         }
     }
 }
+
 .section {
     a {
         text-decoration: none;
-        color: $primary-color;
+        color: variables.$primary-color;
 
         &:hover,
         &:focus {
@@ -148,99 +157,34 @@ hr.clearfix {
     clear: both;
 }
 
-
-
-
-table {
-    margin: 30px auto;
-    text-align: left;
-
-    thead {
-        background: #fff;
-    }
-    tbody {
-        tr {
-            border-bottom: 1px solid #ddd;
-
-            &:nth-child(2n){
-                background: #fcfcfc;
-            }
-        }
-    }
-
-    td,
-    th {
-        padding: 5px 15px;
-    }
+code,
+kbd,
+pre,
+samp {
+    font-family: "JetBrains Mono", monospace;
+    font-size: 15px;
+    line-height: 1.5;
 }
 
 
+:root {
+    --tbw-cell-vertical-padding: 4px;
+    --tbw-cell-horizontal-padding: 8px;
+    --tbw-cell-line-height: 1.5em;
+}
 
+table {
+    margin-bottom: var(--tbw-cell-line-height);
+}
 
+th,
+td {
+    height: calc(var(--tbw-cell-vertical-padding) * 2 + var(--tbw-cell-line-height));
+    min-width: calc(var(--tbw-cell-horizontal-padding) * 2);
+    padding: var(--tbw-cell-vertical-padding) var(--tbw-cell-horizontal-padding);
+    border: 1px solid #e7eaec;
+}
 
-/* ==========================================================================
-   Print styles
-   ========================================================================== */
-
-@media print {
-    * {
-        background: transparent !important;
-        color: #000 !important;
-        box-shadow: none !important;
-        text-shadow: none !important;
-    }
-
-    a,
-    a:visited {
-        text-decoration: underline;
-    }
-
-    a[href]:after {
-        content: " (" attr(href) ")";
-    }
-
-    abbr[title]:after {
-        content: " (" attr(title) ")";
-    }
-
-    .ir a:after,
-    a[href^="javascript:"]:after,
-    a[href^="#"]:after {
-        content: "";
-    }
-
-    pre,
-    blockquote {
-        border: 1px solid #999;
-        page-break-inside: avoid;
-    }
-
-    thead {
-        display: table-header-group;
-    }
-
-    tr,
-    img {
-        page-break-inside: avoid;
-    }
-
-    img {
-        max-width: 100% !important;
-    }
-
-    @page {
-        margin: 0.5cm;
-    }
-
-    p,
-    h2,
-    h3 {
-        orphans: 3;
-        widows: 3;
-    }
-
-    h2,
-    h3 {
-        page-break-after: avoid;
-    }
+thead {
+    background: #FFFFFF;
 }
