@@ -58,7 +58,7 @@ const bannerLight = [
 
 
 const clean = function () {
-    return deleteAsync(['dist/*']);
+    return deleteAsync(['dist/*', 'dist/minified']);
 };
 
 const lint = function () {
@@ -86,7 +86,7 @@ const scripts = function scripts() {
             }
         }))
         .pipe(gulpHeader(bannerLight, {pkg: pkg}))
-        .pipe(gulp.dest('dist/'))
+        .pipe(gulp.dest('dist/minified/'))
         .pipe(gulpSize({title: 'trumbowyg.min.js'}));
 };
 
@@ -99,7 +99,7 @@ const pluginsScripts = function pluginsScripts() {
                 comments: /trumbowyg\./
             }
         }))
-        .pipe(gulp.dest('dist/plugins/'));
+        .pipe(gulp.dest('dist/minified/plugins/'));
 };
 
 const langs = function langs() {
@@ -111,7 +111,7 @@ const langs = function langs() {
                 comments: 'all'
             }
         }))
-        .pipe(gulp.dest('dist/langs/'));
+        .pipe(gulp.dest('dist/minified/langs/'));
 };
 
 
@@ -146,7 +146,7 @@ const styles = function () {
     }
 
     stylesPipe = stylesPipe
-        .pipe(gulp.dest('dist/ui/'))
+        .pipe(gulp.dest('dist/minified/ui/'))
         .pipe(gulpSize({title: 'trumbowyg.min.css'}));
 
     return stylesPipe;
@@ -170,7 +170,7 @@ const pluginsStyles = function () {
         .pipe(gulpRename({suffix: '.min'}))
         .pipe(gulpCleanCss())
         .pipe(gulpHeader(bannerLight, {pkg: pkg}))
-        .pipe(gulp.dest('dist/plugins/'))
+        .pipe(gulp.dest('dist/minified/plugins/'))
         .pipe(gulpSize({title: 'Plugins styles'}));
 };
 
