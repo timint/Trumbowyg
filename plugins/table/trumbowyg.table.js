@@ -54,6 +54,7 @@
         borderColorList: null, // fallbacks on colorList
         allowCustomBorderColor: true,
         displayBorderColorsAsList: false,
+        addHeaderRowToNewTables: true,
         dropdown: [
             {
                 title: 'tableRows',
@@ -230,6 +231,28 @@
                 tableVerticalAlignBottom: 'Aligner en bas',
                 tableCellBackgroundColor: 'Couleur de fond des cellules',
                 tableBorderColor: 'Couleur de la bordure du tableau'
+            },
+            ha: {
+                table: 'Saka tebur',
+                tableRows: 'Layuka',
+                tableColumns: 'Shafi',
+                tableVerticalAlign: 'Dai-daita Vertical',
+                tableOthers: 'Saura',
+                tableAddHeaderRow: 'Saka layin sama',
+                tableAddRowAbove: 'Saka layi a sama',
+                tableAddRow: 'Saka layi a ƙasa',
+                tableAddColumnLeft: 'Saka shafi a hagu',
+                tableAddColumn: 'Saka shafi a dama',
+                tableDeleteRow: 'Goge layi',
+                tableDeleteColumn: 'Goge shafi',
+                tableDestroy: 'Goge tebur',
+                tableMergeCells: 'Haɗe akwati',
+                tableUnmergeCells: 'Raba akwati',
+                tableVerticalAlignTop: 'Tura rubutu zuwa sama',
+                tableVerticalAlignMiddle: 'Tura rubutu zuwa tsakiya ta tsaye',
+                tableVerticalAlignBottom: 'Tura rubutu zuwa ƙasa',
+                tableCellBackgroundColor: 'Kalar bayan akwati',
+                tableBorderColor: 'Kalar gewayen tebur'
             },
             hu: {
                 table: 'Táblázat beszúrás',
@@ -486,14 +509,16 @@
 
                         var $newTable = $('<table/>');
 
-                        // Build thead
-                        var $thead = $('<thead/>');
-                        var $theadTr = $('<tr/>');
-                        $theadTr.appendTo($thead);
-                        for (var th = 0; th <= this.cellIndex; th += 1) {
-                            $('<th/>', {scope: 'col'}).appendTo($theadTr);
+                        if (t.o.plugins.table.addHeaderRowToNewTables) {
+                            // Build thead
+                            var $thead = $('<thead/>');
+                            var $theadTr = $('<tr/>');
+                            $theadTr.appendTo($thead);
+                            for (var th = 0; th <= this.cellIndex; th += 1) {
+                                $('<th/>', {scope: 'col'}).appendTo($theadTr);
+                            }
+                            $thead.appendTo($newTable);
                         }
-                        $thead.appendTo($newTable);
 
                         // Build tbody
                         var $tbody = $('<tbody/>');
